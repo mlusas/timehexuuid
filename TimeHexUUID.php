@@ -18,6 +18,23 @@ class TimeHexUUID
         '4', '5', '6', '7', '8',
         '9'
     ];
+    
+    /**
+     * Creates a random character string based on the number of characters and returns the string
+     *
+     * @param int $numOfCharacters
+     *
+     * @return string
+     */
+    private static function createRandomCharacterString(int $numOfCharacters){
+        $randomString = '';
+        $charactersCount = count(self::$characters);
+        for($i = 0; $i < $numOfCharacters; $i++){
+            $randomString .= self::$characters[mt_rand(0, $charactersCount)];
+        }
+
+        return $randomString;
+    }
 
     /**
      * Create a UUID with epoch unix timestamp + random hex characters
